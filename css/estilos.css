@@ -1,0 +1,55 @@
+:root{--verde:#39a900;--oscuro:#287800;--fondo:#f4f6f4;--texto:#263238;--borde:#ddd}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:Arial,Helvetica,sans-serif;color:var(--texto);background:var(--fondo);display:flex;min-height:100vh}
+.menu-lateral{width:270px;background:var(--verde);color:white;min-height:100vh;flex-shrink:0;padding:28px 20px}
+.menu-lateral h2{text-align:center;margin:0 0 32px}
+nav{display:grid;gap:8px}
+nav a{color:white;text-decoration:none;display:block;padding:13px 12px;border-radius:6px}
+nav a:hover,nav a:focus{background:var(--oscuro)}
+main{flex:1;min-width:0;padding:26px 30px}
+.encabezado,section{background:white;border-radius:12px;padding:26px;margin-bottom:25px;box-shadow:0 2px 8px #0000000a}
+.encabezado{border-left:5px solid var(--verde)}
+h1,h2{color:var(--oscuro)}
+h1{font-size:26px;margin:0 0 12px}
+h2{font-size:23px;margin:0 0 22px}
+h3{font-size:16px}
+.encabezado>p{line-height:1.55}
+.aviso{background:#ebf6e5;border:1px solid #b9d8ae;padding:13px 15px;border-radius:8px}
+.tarjetas{display:flex;gap:20px;flex-wrap:wrap}
+.tarjetas article{background:#f4f6f4;border-left:5px solid var(--verde);padding:20px 28px;border-radius:10px;flex:1;min-width:190px}
+.tarjetas article h3{margin:6px 0 18px}
+.tarjetas article p{font-size:32px;font-weight:700;color:var(--verde);margin:0}
+.herramientas{display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px;margin-bottom:12px}
+input,select{padding:12px;border-radius:6px;border:1px solid var(--borde);font:inherit;background:white}
+#buscarAprendiz{width:340px;max-width:100%}
+button{background:var(--verde);color:white;border:0;border-radius:5px;padding:11px 16px;cursor:pointer;font-size:14px}
+button:hover{filter:brightness(.88)}
+button:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid var(--verde);outline-offset:2px}
+.secundario{background:#666}
+.eliminar,.btn-eliminar{background:#c62828}
+.btn-editar{background:#1976d2}
+.btn-ver{background:#455a64}
+.btn-ver,.btn-editar,.btn-eliminar{padding:8px 11px;white-space:nowrap}
+.acciones{display:flex;gap:5px;flex-wrap:wrap}
+#estadoSistema{min-height:20px;font-size:14px;color:var(--oscuro)}
+#estadoSistema.error,.error{color:#b42318}
+.tabla-contenedor{overflow-x:auto}
+table{border-collapse:collapse;width:100%;min-width:830px}
+thead{background:var(--verde);color:white}
+th,td{padding:15px 12px;text-align:left;border-bottom:1px solid var(--borde)}
+tbody tr:hover{background:#f3f9ef}
+.modal{position:fixed;inset:0;background:#0009;display:flex;align-items:center;justify-content:center;padding:20px;z-index:10}
+.oculto{display:none}
+.modal-contenido{max-width:520px;width:100%;max-height:90vh;overflow-y:auto;background:white;border-radius:12px;padding:26px}
+.modal-encabezado{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.modal-encabezado h2{margin-bottom:12px}
+.cerrar{background:transparent;color:var(--texto);font-size:28px;padding:0 8px}
+form{display:grid;gap:8px}
+form label{font-weight:700;margin-top:7px}
+form input,form select{width:100%}
+#mensajeFormulario{min-height:14px;font-size:14px}
+.botones-formulario{display:flex;justify-content:flex-end;gap:10px;margin-top:18px}
+.detalles p{padding:12px;background:var(--fondo);border-radius:5px;overflow-wrap:anywhere}
+.detalles strong{color:var(--oscuro);display:block;margin-bottom:6px}
+@media(max-width:800px){body{display:block}.menu-lateral{min-height:auto;width:100%;padding:15px}.menu-lateral h2{margin-bottom:12px}nav{display:flex;overflow-x:auto}nav a{white-space:nowrap}main{padding:15px}.tarjetas{display:block}.tarjetas article{margin-bottom:12px}.herramientas{display:grid}#buscarAprendiz{width:100%}}
