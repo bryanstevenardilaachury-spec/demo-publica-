@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bienestar SENA | Demostración académica</title>
+  <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+  <aside class="menu-lateral">
+    <h2>Bienestar SENA</h2>
+    <nav aria-label="Navegación principal">
+      <a href="#inicio">Inicio</a>
+      <a href="#aprendices">Aprendices</a>
+      <a href="#inicio">Programas de formación</a>
+      <a href="#aprendices">Beneficios</a>
+      <a href="#inicio">Reportes (próximamente)</a>
+    </nav>
+  </aside>
+  <main id="inicio">
+    <header class="encabezado">
+      <h1>Sistema de Bienestar al Aprendiz</h1>
+      <p>Prototipo académico de demostración. No es un sistema oficial del SENA.</p>
+      <p class="aviso"><strong>DEMO PÚBLICA:</strong> todos los datos son ficticios. Los cambios se simulan en este navegador; no existe conexión a Supabase ni se guarda información.</p>
+    </header>
+    <section aria-labelledby="resumen">
+      <h2 id="resumen">Resumen general</h2>
+      <div class="tarjetas">
+        <article><h3>Total de aprendices</h3><p id="totalAprendices">0</p></article>
+        <article><h3>Aprendices beneficiados</h3><p id="totalBeneficiados">0</p></article>
+        <article><h3>Programas de formación</h3><p id="totalProgramas">0</p></article>
+      </div>
+    </section>
+    <section id="aprendices" aria-labelledby="listado">
+      <h2 id="listado">Listado de aprendices</h2>
+      <div class="herramientas">
+        <input type="search" id="buscarAprendiz" placeholder="Buscar aprendiz..." aria-label="Buscar aprendiz">
+        <button type="button" id="btnRegistrar">Registrar aprendiz</button>
+      </div>
+      <p id="estadoSistema" role="status" aria-live="polite"></p>
+      <div class="tabla-contenedor">
+        <table>
+          <thead><tr><th>Documento</th><th>Nombre completo</th><th>Programa</th><th>Ficha</th><th>Beneficio</th><th>Acciones</th></tr></thead>
+          <tbody id="tablaAprendices"></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <div class="modal oculto" id="modalRegistro" role="dialog" aria-modal="true" aria-labelledby="tituloFormulario">
+    <div class="modal-contenido">
+      <div class="modal-encabezado">
+        <h2 id="tituloFormulario">Registrar aprendiz</h2>
+        <button type="button" class="cerrar" id="cerrarModal" aria-label="Cerrar formulario">&times;</button>
+      </div>
+      <form id="formRegistro">
+        <label for="documento">Documento ficticio</label>
+        <input id="documento" type="text" maxlength="15" required>
+        <label for="nombre">Nombre completo</label>
+        <input id="nombre" type="text" maxlength="150" required>
+        <label for="programa">Programa de formación</label>
+        <select id="programa" required>
+          <option value="">Seleccione un programa</option>
+          <option>Análisis y Desarrollo de Software</option>
+          <option>Gestión Administrativa</option>
+          <option>Contabilidad y Finanzas</option>
+        </select>
+        <label for="ficha">Número de ficha ficticia</label>
+        <input id="ficha" type="text" maxlength="20" required>
+        <label for="beneficio">Beneficio</label>
+        <select id="beneficio" required>
+          <option value="">Seleccione un beneficio</option>
+          <option>Sin beneficio</option><option>Alimentación</option>
+          <option>Transporte</option><option>Sostenimiento</option>
+        </select>
+        <p id="mensajeFormulario" class="error" role="status" aria-live="polite"></p>
+        <div class="botones-formulario">
+          <button type="button" id="cancelarRegistro" class="secundario">Cancelar</button>
+          <button type="submit" id="btnGuardar">Guardar aprendiz</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="modal oculto" id="modalDetalles" role="dialog" aria-modal="true" aria-labelledby="tituloDetalles">
+    <div class="modal-contenido">
+      <div class="modal-encabezado">
+        <h2 id="tituloDetalles">Detalles del aprendiz</h2>
+        <button type="button" class="cerrar" id="cerrarDetalles" aria-label="Cerrar detalles">&times;</button>
+      </div>
+      <div class="detalles">
+        <p><strong>Documento:</strong> <span id="detalleDocumento"></span></p>
+        <p><strong>Nombre:</strong> <span id="detalleNombre"></span></p>
+        <p><strong>Programa:</strong> <span id="detallePrograma"></span></p>
+        <p><strong>Ficha:</strong> <span id="detalleFicha"></span></p>
+        <p><strong>Beneficio:</strong> <span id="detalleBeneficio"></span></p>
+      </div>
+      <div class="botones-formulario"><button type="button" id="btnCerrarDetalles">Cerrar</button></div>
+    </div>
+  </div>
+  <div class="modal oculto" id="modalEliminar" role="dialog" aria-modal="true" aria-labelledby="tituloEliminar">
+    <div class="modal-contenido">
+      <h2 id="tituloEliminar">Confirmar eliminación simulada</h2>
+      <p>¿Deseas eliminar a <strong id="nombreEliminar"></strong> de esta demostración? No se modificará ninguna base de datos.</p>
+      <div class="botones-formulario">
+        <button type="button" id="cancelarEliminar" class="secundario">Cancelar</button>
+        <button type="button" id="confirmarEliminar" class="eliminar">Sí, eliminar</button>
+      </div>
+    </div>
+  </div>
+  <script src="js/app.js"></script>
+</body>
+</html>
